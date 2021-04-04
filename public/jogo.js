@@ -16,7 +16,6 @@ function setup() {
   createCanvas(1000, 657);
   
   faseAtual = getFaseAtual();
-  faseAtual.iniciar();
   player = new Player(faseAtual);
   
   vidaRuimImg = loadImage('assets/tela/vidaRuim.png');
