@@ -44,12 +44,17 @@ class Player {
       }
     }
     
-    if(this.vivo || !this.noSolo()) {
+    if(!this.caiuBuraco()) {
       this.sprite.velocity.y += this.GRAVIDADE;
     }
     
     if(!this.vivo && this.noSolo()) {
       this.sprite.changeAnimation('morto');
+    }
+    
+    if(this.caiuBuraco()) {
+    	this.sprite.velocity.y = 0;
+    	this.morrer();
     }
     
     this.sprite.collide(this.fase.getObstaculos(), this.tratamentoColisao.bind(this));
@@ -69,12 +74,22 @@ class Player {
     return this.sprite.velocity.y == 0 || this.sprite.velocity.y == this.GRAVIDADE;
   }
   
+  caiuBuraco() {
+	  return this.fase.getBackground().height > 1 && this.sprite.position.y - this.sprite.height > this.fase.getBackground().height;
+  }
+  
+  morrer() {
+	if(this.vivo)
+		this.vidas--;
+	this.vivo = false;  
+  }
+  
   tratamentoColisao(player, obstaculo) {    
-    if((floor(player.position.y) + this.altura/2 == obstaculo.position.y - obstaculo.height/2) ) {
+    if((floor(player.position.y) + this.sprite.height/2 == obstaculo.position.y - obstaculo.height/2) ) {
       this.sprite.velocity.y = 0;
       this.pulando = false;
     }
-    if((floor(player.position.y) - this.altura/2 == obstaculo.position.y + obstaculo.height/2)) {
+    if((floor(player.position.y) - this.sprite.height/2 == obstaculo.position.y + obstaculo.height/2)) {
       this.sprite.velocity.y = 0;
     }
   }
@@ -85,9 +100,7 @@ class Player {
   }
   
   tratamentoInimigo(player, inimigo) {
-    if(this.vivo)
-      this.vidas--;
-    this.vivo = false;
+	  this.morrer();
   }
   
   getPosicao() {
