@@ -5,7 +5,7 @@ class Player {
     this.VELOCIDADE_SALTO = -15;
     this.SOM_COLETAVEL = loadSound('assets/sounds/coletavel.ogg');
     
-    this.vidas = 3;
+    this.vidas = 4;
     
     this.sprite = createSprite();
     this.carregarAnimacoes();
