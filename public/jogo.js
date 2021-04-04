@@ -11,6 +11,7 @@ let tempoEspera = 0;
 let fases = [];
 
 function setup() {
+	fases.push(new TelaInicial());
 	fases.push(new FaseNaoReciclaveis());
 	
   createCanvas(1000, 657);
@@ -34,6 +35,11 @@ function draw() {
   background(0);
   
   image(faseAtual.getBackground(), 0, 0);
+  
+  if(faseAtual.getEstado() == estadoFase.APRESENTACAO) {
+	  return;
+  }
+  
   drawSprites();
   player.atualizar();
   

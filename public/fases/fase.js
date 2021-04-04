@@ -48,6 +48,16 @@ class Fase {
     }
   }
   
+  inicializarObjetos(){}
+  
+  definirSpritesObstaculos(){}
+  definirSpritesColetaveis(){}
+  definirSpritesInimigos(){}
+  
+  getEstado() {
+	  return this.estado;
+  }
+  
   getPosicaoInicialJogador() {
     return this.posicaoInicialJogador;
   }
