@@ -4,6 +4,10 @@ let vidaRuimImg;
 let vidaMediaImg;
 let vidaBoaImg;
 
+let tempo = 0;
+let temporizadorIniciado = false;
+let tempoEspera = 0;
+
 function setup() {
   faseAtual = new Fase1();
   createCanvas(1000, 657);
@@ -31,9 +35,13 @@ function draw() {
   faseAtual.atualizarInimigos();
   
   if(player.morto()) {
-	  faseAtual.reiniciar();
-	  player.nascer(faseAtual);
+	  iniciarTemporizador(3);
+	  if(tempo == 3) {
+		  faseAtual.reiniciar();
+		  player.nascer(faseAtual);  
+	  }
   }
+  contarTempo();
 
   camera.position.x = player.getPosicao().x;
   
@@ -56,5 +64,25 @@ function desenharVidas() {
 	for(let i = 0; i < player.getVidas(); i++) {
 		let menorPosicaoTela = constrain(camera.position.x - width/2+30, 30, width);
 		image(img, menorPosicaoTela + 60*i, 20);
+	}
+}
+
+function iniciarTemporizador(tempoTotal) {
+	if(!temporizadorIniciado) {
+		tempo = 0;
+		temporizadorIniciado = true;
+		tempoEspera = tempoTotal+1;
+	}
+}
+
+function contarTempo() {
+	if(temporizadorIniciado) {
+		if(tempo < tempoEspera) {
+			if(frameCount % 60 == 0) {
+				tempo++;
+			}
+		} else {
+			temporizadorIniciado = false;
+		}
 	}
 }
