@@ -8,12 +8,18 @@ class FaseNaoReciclaveis extends Fase {
   
   inicializarObjetos() {
 	this.background = loadImage('assets/fases/f1_bg.jpg');
+	//this.posicaoInicialJogador.x = 4800;
     this.posicaoInicialJogador.x = 100;
     this.posicaoInicialJogador.y = 400;
     
     this.inicializarObstaculos();
     this.inicializarColetaveis();
     this.inicializarInimigos();
+    this.inicializarObjetivo();
+  }
+  
+  inicializarObjetivo() {
+	  this.objetivo = new Objetivo(4943,471,loadImage('assets/sprites/objetivo/nao_reciclaveis.png'));
   }
   
   inicializarInimigos() {

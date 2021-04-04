@@ -39,7 +39,12 @@ function draw() {
   
   image(getFaseAtual().getBackground(), 0, 0);
   
-  if(getFaseAtual().emApresentacao()) {
+  if(getFaseAtual().emApresentacao() || getFaseAtual().finalizada()) {
+	  return;
+  }
+  
+  if(player.getAtingiuObjetivo()) {
+	  avancarFase();
 	  return;
   }
   

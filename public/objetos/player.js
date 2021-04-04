@@ -19,6 +19,8 @@ class Player {
 	  this.sprite.position.x = fase.getPosicaoInicialJogador().x
 	  this.sprite.position.y = fase.posicaoInicialJogador.y;
 	  this.sprite.animation.rewind();
+	  this.objetivo = fase.getObjetivo();
+	  this.atingiuObjetivo = false;
   }
   
   atualizar() {
@@ -62,6 +64,7 @@ class Player {
     this.sprite.collide(this.fase.getObstaculos(), this.tratamentoColisao.bind(this));
     this.sprite.overlap(this.fase.getColetaveis(), this.tratamentoColeta.bind(this));
     this.sprite.overlap(this.fase.getInimigos(), this.tratamentoInimigo.bind(this));
+    this.sprite.overlap(this.objetivo, this.tratamentoObjetivo.bind(this))
   }
   
   pular() {
@@ -90,6 +93,10 @@ class Player {
 	  return !this.vivo && this.sprite.getAnimationLabel() === 'morto' && this.sprite.animation.getFrame() == this.sprite.animation.getLastFrame();
   }
   
+  getAtingiuObjetivo() {
+	  return this.atingiuObjetivo;
+  }
+  
   tratamentoColisao(player, obstaculo) {    
     if((floor(player.position.y) + this.sprite.height/2 == obstaculo.position.y - obstaculo.height/2) ) {
       this.sprite.velocity.y = 0;
@@ -105,8 +112,12 @@ class Player {
     coletavel.remove();
   }
   
-  tratamentoInimigo(player, inimigo) {
+  tratamentoInimigo() {
 	  this.morrer();
+  }
+  
+  tratamentoObjetivo() {
+	  this.atingiuObjetivo = true;
   }
   
   carregarAnimacoes() {

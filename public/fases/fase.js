@@ -61,7 +61,8 @@ class Fase {
   }
   
   avancar() {
-	  this.estados.shift();
+	  if(this.estados.length >= 0)
+		  this.estados.shift();
   }
   
   getEstado() {
@@ -86,5 +87,9 @@ class Fase {
   
   getColetaveis() {
     return this.spritesColetaveis;
+  }
+  
+  getObjetivo() {
+	  return this.objetivo.getSprite();
   }
 }
