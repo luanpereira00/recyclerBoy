@@ -1,6 +1,13 @@
 class TelaInicial extends Fase {
   constructor() {
     super();
+    
+    this.estados.push(estadoFase.APRESENTACAO);
+    this.estados.push(estadoFase.FINALIZADA);
+  }
+  
+  iniciar() {			   
+	this.inicializarObjetos();
   }
   
   inicializarObjetos() {

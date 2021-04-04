@@ -1,6 +1,6 @@
 class Fase {
   constructor() {
-	  this.estado = estadoFase.APRESENTACAO;
+	  this.estados = [];
   }
   
   iniciar() {
@@ -48,14 +48,24 @@ class Fase {
     }
   }
   
-  inicializarObjetos(){}
+  emApresentacao() {
+	  return this.getEstado() == estadoFase.APRESENTACAO;
+  }
   
-  definirSpritesObstaculos(){}
-  definirSpritesColetaveis(){}
-  definirSpritesInimigos(){}
+  emAndamento() {
+	  return this.getEstado() == estadoFase.ANDAMENTO;
+  }
+  
+  finalizada() {
+	  return this.getEstado() == estadoFase.FINALIZADA;
+  }
+  
+  avancar() {
+	  this.estados.shift();
+  }
   
   getEstado() {
-	  return this.estado;
+	  return this.estados[0];
   }
   
   getPosicaoInicialJogador() {

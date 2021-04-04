@@ -1,5 +1,4 @@
 let player;
-let faseAtual;
 let vidaRuimImg;
 let vidaMediaImg;
 let vidaBoaImg;
@@ -14,11 +13,9 @@ function setup() {
 	fases.push(new TelaInicial());
 	fases.push(new FaseNaoReciclaveis());
 	
+	iniciarFase();
+	
   createCanvas(1000, 657);
-  
-  faseAtual = getFaseAtual();
-  faseAtual.iniciar();
-  player = new Player(faseAtual);
   
   vidaRuimImg = loadImage('assets/tela/vidaRuim.png');
   vidaMediaImg = loadImage('assets/tela/vidaMedia.png');
@@ -29,21 +26,27 @@ function keyPressed() {
   if (keyCode == UP_ARROW) {
     player.pular();
   }
+  
+  if(getFaseAtual().emApresentacao()) {
+	  if (keyCode == ENTER) {
+		  avancarFase();
+	  }
+  }
 }
 
 function draw() {
   background(0);
   
-  image(faseAtual.getBackground(), 0, 0);
+  image(getFaseAtual().getBackground(), 0, 0);
   
-  if(faseAtual.getEstado() == estadoFase.APRESENTACAO) {
+  if(getFaseAtual().emApresentacao()) {
 	  return;
   }
   
   drawSprites();
   player.atualizar();
   
-  faseAtual.atualizarInimigos();
+  getFaseAtual().atualizarInimigos();
   
   if(player.morto()) {
 	  if(gameOver()) {
@@ -51,8 +54,8 @@ function draw() {
 	  } else {
 		  iniciarTemporizador(3);
 		  if(tempo == 3) {
-			  faseAtual.reiniciar();
-			  player.nascer(faseAtual);  
+			  getFaseAtual().reiniciar();
+			  player.nascer(getFaseAtual());
 		  }
 	  }
   }
@@ -65,6 +68,27 @@ function draw() {
 
 function getFaseAtual() {
 	return fases[0];
+}
+
+function iniciarFase() {
+	getFaseAtual().iniciar();
+	if(player == null && getFaseAtual().emAndamento()) {
+		player = new Player(getFaseAtual());
+	}
+}
+
+function avancarFase() {
+	getFaseAtual().avancar();
+	
+	if(getFaseAtual().finalizada()) {
+		iniciarNovaFase();
+		player.nascer(getFaseAtual());
+	}
+}
+
+function iniciarNovaFase() {
+	fases.shift();
+	iniciarFase();
 }
 
 function desenharItensTela() {
