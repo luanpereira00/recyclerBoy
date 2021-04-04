@@ -19,7 +19,6 @@ class Player {
 	  this.sprite.position.x = fase.getPosicaoInicialJogador().x
 	  this.sprite.position.y = fase.posicaoInicialJogador.y;
 	  this.sprite.animation.rewind();
-	  //this.sprite.changeAnimation('normal');
   }
   
   atualizar() {

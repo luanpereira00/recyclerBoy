@@ -4,7 +4,7 @@ class Fase1 extends Fase {
   }
   
   inicializarObjetos() {
-    this.posicaoInicialJogador.x = 800;
+    this.posicaoInicialJogador.x = 700;
     this.posicaoInicialJogador.y = 400;
     
     this.inicializarObstaculos();
@@ -17,7 +17,7 @@ class Fase1 extends Fase {
   inicializarInimigos() {
     this.inimigos = [];
     
-    this.inimigos.push(new Inimigo(1044,505,'verde'));
+    this.inimigos.push(new Inimigo(1044,505,'verde',false,300,2));
   }
   
   inicializarColetaveis() {

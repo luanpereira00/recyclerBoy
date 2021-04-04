@@ -21,6 +21,8 @@ function draw() {
   drawSprites();
   player.atualizar();
   
+  faseAtual.atualizarInimigos();
+  
   if(player.morto()) {
 	  faseAtual.reiniciar();
 	  player.nascer(faseAtual);
