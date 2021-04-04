@@ -96,6 +96,7 @@ function avancarFase() {
 
 function iniciarNovaFase() {
 	camera.position.x = 500;
+	getFaseAtual().destruir();
 	fases.shift();
 	iniciarFase();
 }

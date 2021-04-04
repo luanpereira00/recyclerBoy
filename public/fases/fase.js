@@ -17,11 +17,19 @@ class Fase {
   }
   
   reiniciar() {
-	  this.spritesObstaculos.removeSprites();
-	  this.spritesColetaveis.removeSprites();
-	  this.spritesInimigos.removeSprites();
-	  
+	  destruir();	  
 	  this.iniciar();
+  }
+  
+  destruir() {
+	  if(this.spritesObstaculos)
+		  this.spritesObstaculos.removeSprites();
+	  if(this.spritesColetaveis)
+		  this.spritesColetaveis.removeSprites();
+	  if(this.spritesInimigos)
+		  this.spritesInimigos.removeSprites();
+	  if(this.spriteObjetivo)
+		  this.spriteObjetivo.remove();
   }
   
   atualizarInimigos() {
