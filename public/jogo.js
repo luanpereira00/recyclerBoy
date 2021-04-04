@@ -35,10 +35,14 @@ function draw() {
   faseAtual.atualizarInimigos();
   
   if(player.morto()) {
-	  iniciarTemporizador(3);
-	  if(tempo == 3) {
-		  faseAtual.reiniciar();
-		  player.nascer(faseAtual);  
+	  if(gameOver()) {
+		  desenharGameOver();
+	  } else {
+		  iniciarTemporizador(3);
+		  if(tempo == 3) {
+			  faseAtual.reiniciar();
+			  player.nascer(faseAtual);  
+		  }
 	  }
   }
   contarTempo();
@@ -85,4 +89,17 @@ function contarTempo() {
 			temporizadorIniciado = false;
 		}
 	}
+}
+
+function gameOver() {
+	return player.getVidas() == 0;
+}
+
+function desenharGameOver() {
+	fill('rgba(0,0,0, 0.75)');
+	rect(camera.position.x - width/2, 0, width, height);
+	fill(255);
+	textSize(80);
+	textAlign(CENTER);
+	text("GAME OVER", camera.position.x, height/2);
 }
