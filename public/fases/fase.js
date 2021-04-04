@@ -12,6 +12,10 @@ class Fase {
     this.definirSpritesInimigos();
   }
   
+  reiniciar() {
+	  this.definirSpritesColetaveis();
+  }
+  
   definirSpritesObstaculos() {    
     for(let i = 0; i < this.obstaculos.length; i++) {
       this.spritesObstaculos.add(this.obstaculos[i].getSprite());

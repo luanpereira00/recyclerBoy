@@ -20,6 +20,11 @@ function draw() {
   image(faseAtual.getBackground(), 0, 0);
   drawSprites();
   player.atualizar();
+  
+  if(player.morto()) {
+	  faseAtual.reiniciar();
+	  player.nascer(faseAtual);
+  }
 
   camera.position.x = player.getPosicao().x;
 }

@@ -3,20 +3,23 @@ class Player {
     this.velocidade = 5;
     this.GRAVIDADE = 0.8;
     this.VELOCIDADE_SALTO = -15;
+    this.SOM_COLETAVEL = loadSound('assets/sounds/coletavel.ogg');
     
-    this.fase = fase;
-    this.coletaveis = fase.getColetaveis();
-    this.altura = 60;
-    this.largura = 38;
-    this.pulando = false;
-    this.vivo = true;
-    this.somColetavel = loadSound('assets/sounds/coletavel.ogg');
     this.vidas = 3;
     
     this.sprite = createSprite();
     this.carregarAnimacoes();
-    this.sprite.position.x = fase.getPosicaoInicialJogador().x
-    this.sprite.position.y = fase.posicaoInicialJogador.y;
+    this.nascer(fase);
+  }
+  
+  nascer(fase) {
+	  this.fase = fase;
+	  this.pulando = false;
+	  this.vivo = true;
+	  this.sprite.position.x = fase.getPosicaoInicialJogador().x
+	  this.sprite.position.y = fase.posicaoInicialJogador.y;
+	  this.sprite.animation.rewind();
+	  //this.sprite.changeAnimation('normal');
   }
   
   atualizar() {
@@ -84,6 +87,10 @@ class Player {
 	this.vivo = false;  
   }
   
+  morto() {
+	  return !this.vivo && this.sprite.getAnimationLabel() === 'morto' && this.sprite.animation.getFrame() == this.sprite.animation.getLastFrame();
+  }
+  
   tratamentoColisao(player, obstaculo) {    
     if((floor(player.position.y) + this.sprite.height/2 == obstaculo.position.y - obstaculo.height/2) ) {
       this.sprite.velocity.y = 0;
@@ -95,7 +102,7 @@ class Player {
   }
   
   tratamentoColeta(player, coletavel) {
-    this.somColetavel.play();
+    this.SOM_COLETAVEL.play();
     coletavel.remove();
   }
   
