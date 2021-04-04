@@ -12,6 +12,7 @@ let fases = [];
 function setup() {
 	fases.push(new TelaInicial());
 	fases.push(new FaseNaoReciclaveis());
+	fases.push(new TelaFinal());
 	
 	iniciarFase();
 	
@@ -57,8 +58,8 @@ function draw() {
 	  if(gameOver()) {
 		  desenharGameOver();
 	  } else {
-		  iniciarTemporizador(3);
-		  if(tempo == 3) {
+		  iniciarTemporizador(2);
+		  if(tempo == 2) {
 			  getFaseAtual().reiniciar();
 			  player.nascer(getFaseAtual());
 		  }
@@ -87,11 +88,14 @@ function avancarFase() {
 	
 	if(getFaseAtual().finalizada()) {
 		iniciarNovaFase();
-		player.nascer(getFaseAtual());
+		if(getFaseAtual().emAndamento()) {
+			player.nascer(getFaseAtual());
+		}
 	}
 }
 
 function iniciarNovaFase() {
+	camera.position.x = 500;
 	fases.shift();
 	iniciarFase();
 }
@@ -110,7 +114,7 @@ function desenharVidas() {
 		img = vidaBoaImg;
 	
 	for(let i = 0; i < player.getVidas(); i++) {
-		let menorPosicaoTela = constrain(camera.position.x - width/2+30, 30, width);
+		let menorPosicaoTela = Math.max(camera.position.x - width/2+30, 30);
 		image(img, menorPosicaoTela + 60*i, 20);
 	}
 }
