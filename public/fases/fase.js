@@ -1,19 +1,27 @@
 class Fase {
   constructor() {
-    this.posicaoInicialJogador = {};
-    this.spritesObstaculos = new Group();
-    this.spritesColetaveis = new Group();
-    this.spritesInimigos = new Group();
-   
-    this.inicializarObjetos();
-    
-    this.definirSpritesObstaculos();
-    this.definirSpritesColetaveis();
-    this.definirSpritesInimigos();
+	  this.iniciar();
+  }
+  
+  iniciar() {
+	this.posicaoInicialJogador = {};
+	this.spritesObstaculos = new Group();
+	this.spritesColetaveis = new Group();
+	this.spritesInimigos = new Group();
+		   
+	this.inicializarObjetos();
+		    
+	this.definirSpritesObstaculos();
+	this.definirSpritesColetaveis();
+	this.definirSpritesInimigos();
   }
   
   reiniciar() {
-	  this.definirSpritesColetaveis();
+	  this.spritesObstaculos.removeSprites();
+	  this.spritesColetaveis.removeSprites();
+	  this.spritesInimigos.removeSprites();
+	  
+	  this.iniciar();
   }
   
   atualizarInimigos() {
