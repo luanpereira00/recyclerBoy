@@ -23,9 +23,9 @@ class Fase1 extends Fase {
   inicializarColetaveis() {
     this.coletaveis = [];
     
-    let cascaOvoImg = loadImage('assets/sprites/coletavel/nao_reciclaveis/espelho.png');
+    let pizza = loadImage('assets/sprites/coletavel/nao_reciclaveis/caixa_pizza.png');
     
-    this.coletaveis.push(new Coletavel(700,307,cascaOvoImg));
+    this.coletaveis.push(new Coletavel(700,307,pizza));
   }
   
   inicializarObstaculos() {
