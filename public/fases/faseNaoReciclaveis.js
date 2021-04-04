@@ -1,17 +1,16 @@
-class Fase1 extends Fase {
+class FaseNaoReciclaveis extends Fase {
   constructor() {
     super();
   }
   
   inicializarObjetos() {
-    this.posicaoInicialJogador.x = 700;
+	this.background = loadImage('assets/fases/f1_bg.jpg');
+    this.posicaoInicialJogador.x = 200;
     this.posicaoInicialJogador.y = 400;
     
     this.inicializarObstaculos();
     this.inicializarColetaveis();
     this.inicializarInimigos();
-    
-    this.background = loadImage('assets/fases/f1_bg.jpg');
   }
   
   inicializarInimigos() {

@@ -1,6 +1,6 @@
 class Fase {
   constructor() {
-	  this.iniciar();
+	  this.estado = estadoFase.APRESENTACAO;
   }
   
   iniciar() {

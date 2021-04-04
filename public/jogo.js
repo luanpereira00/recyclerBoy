@@ -8,10 +8,15 @@ let tempo = 0;
 let temporizadorIniciado = false;
 let tempoEspera = 0;
 
+let fases = [];
+
 function setup() {
-  faseAtual = new Fase1();
+	fases.push(new FaseNaoReciclaveis());
+	
   createCanvas(1000, 657);
   
+  faseAtual = getFaseAtual();
+  faseAtual.iniciar();
   player = new Player(faseAtual);
   
   vidaRuimImg = loadImage('assets/tela/vidaRuim.png');
@@ -50,6 +55,10 @@ function draw() {
   camera.position.x = player.getPosicao().x;
   
   desenharItensTela();
+}
+
+function getFaseAtual() {
+	return fases[0];
 }
 
 function desenharItensTela() {
