@@ -9,7 +9,7 @@ class FaseNaoReciclaveis extends Fase {
   inicializarObjetos() {
 	this.background = loadImage('assets/fases/f1_bg.jpg');
 	this.posicaoInicialJogador.x = 100;
-    this.posicaoInicialJogador.y = 0;
+    this.posicaoInicialJogador.y = 100;
     
     this.inicializarObstaculos();
     this.inicializarColetaveis();

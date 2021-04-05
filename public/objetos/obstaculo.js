@@ -5,7 +5,7 @@ class Obstaculo {
     this.largura = largura;
     this.altura = altura;
     this.sprite = createSprite(this.x, this.y, this.largura, this.altura);
-    this.sprite.shapeColor = color(0,0,0,0);
+    //this.sprite.shapeColor = color(0,0,0,0);
   }
   
   getSprite() {

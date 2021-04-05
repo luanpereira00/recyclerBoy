@@ -89,8 +89,6 @@ class FaseMetal extends Fase {
     this.coletaveis.push(new Coletavel(2545,143,lata_verde));
     this.coletaveis.push(new Coletavel(2830,375,lata02));
     
-    this.posicaoInicialJogador.x = 3030;
-    this.posicaoInicialJogador.y = 50;
   }
   
   inicializarObjetivo() {

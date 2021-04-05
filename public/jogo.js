@@ -11,6 +11,7 @@ let fases = [];
 
 function setup() {
 	fases.push(new TelaInicial());
+	fases.push(new FasePapel());
 	fases.push(new FaseNaoReciclaveis());
 	fases.push(new FaseMetal());
 	fases.push(new TelaFinal());
