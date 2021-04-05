@@ -28,8 +28,8 @@ class Fase {
 		  this.spritesColetaveis.removeSprites();
 	  if(this.spritesInimigos)
 		  this.spritesInimigos.removeSprites();
-	  if(this.spriteObjetivo)
-		  this.spriteObjetivo.remove();
+	  if(this.objetivo && this.objetivo.getSprite())
+		  this.objetivo.getSprite().remove();
   }
   
   atualizarInimigos() {
