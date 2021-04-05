@@ -17,7 +17,7 @@ class Fase {
   }
   
   reiniciar() {
-	  destruir();	  
+	  this.destruir();	  
 	  this.iniciar();
   }
   

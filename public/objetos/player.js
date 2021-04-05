@@ -18,6 +18,7 @@ class Player {
 	  this.vivo = true;
 	  this.sprite.position.x = fase.getPosicaoInicialJogador().x
 	  this.sprite.position.y = fase.posicaoInicialJogador.y;
+	  this.sprite.mirrorX(1);
 	  this.sprite.animation.rewind();
 	  this.objetivo = fase.getObjetivo();
 	  this.atingiuObjetivo = false;

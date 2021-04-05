@@ -49,7 +49,7 @@ let inimigoAnimation = {
       'assets/sprites/inimigo/olhudo/3.png',
       'assets/sprites/inimigo/olhudo/4.png',
       'assets/sprites/inimigo/olhudo/5.png',
-      'assets/sprites/inimigo/olhudo/6.png',
+      'assets/sprites/inimigo/olhudo/6.png'
 	  );
   },
   verde : function() {
@@ -59,9 +59,25 @@ let inimigoAnimation = {
       'assets/sprites/inimigo/verde/frame-3.png',
       'assets/sprites/inimigo/verde/frame-4.png',
       'assets/sprites/inimigo/verde/frame-5.png',
-      'assets/sprites/inimigo/verde/frame-6.png',
+      'assets/sprites/inimigo/verde/frame-6.png'
 	  );
     inimigoAnimation.frameDelay = 6;
     return inimigoAnimation;
-  }
+  },
+  voador_verde : function() {
+    let inimigoAnimation = loadAnimation (
+      'assets/sprites/inimigo/voador_verde/frame-1.png',
+      'assets/sprites/inimigo/voador_verde/frame-2.png',
+      'assets/sprites/inimigo/voador_verde/frame-3.png',
+      'assets/sprites/inimigo/voador_verde/frame-4.png'
+	  );
+    inimigoAnimation.frameDelay = 6;
+    return inimigoAnimation;
+  },
+  voador_vermelho : function() {
+    return loadAnimation (
+      'assets/sprites/inimigo/voador_vermelho/frame-1.png',
+      'assets/sprites/inimigo/voador_vermelho/frame-2.png'
+	  );
+  },
 }
