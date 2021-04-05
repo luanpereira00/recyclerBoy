@@ -9,6 +9,12 @@ let tempoEspera = 0;
 
 let fases = [];
 
+let trilhaSonora;
+
+function preload() {
+	trilhaSonora = loadSound('assets/sounds/trilha.wav');
+}
+
 function setup() {
 	fases.push(new TelaInicial());
 	fases.push(new FasePapel());
@@ -32,6 +38,7 @@ function keyPressed() {
   
   if(getFaseAtual().emApresentacao()) {
 	  if (keyCode == ENTER) {
+		  trilhaSonora.loop();
 		  avancarFase();
 	  }
   }
@@ -41,7 +48,7 @@ function draw() {
   background(0);
   
   image(getFaseAtual().getBackground(), 0, 0);
-  
+
   if(getFaseAtual().emApresentacao() || getFaseAtual().finalizada()) {
 	  return;
   }

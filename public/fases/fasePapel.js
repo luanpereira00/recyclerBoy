@@ -9,7 +9,7 @@ class FasePapel extends Fase {
   inicializarObjetos() {
 	this.background = loadImage('assets/fases/f_papel.png');
 	this.posicaoInicialJogador.x = 100;
-	this.posicaoInicialJogador.y = 50;
+	this.posicaoInicialJogador.y = 200;
     
     this.inicializarObstaculos();
     this.inicializarColetaveis();
