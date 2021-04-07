@@ -30,6 +30,7 @@ function preload() {
 function setup() {	
 	iniciarFase();
 	createCanvas(1000, 657);
+	player = new Player();
 }
 
 function keyPressed() {
@@ -88,9 +89,6 @@ function getFaseAtual() {
 
 function iniciarFase() {
 	getFaseAtual().iniciar();
-	if(player == null && getFaseAtual().emAndamento()) {
-		player = new Player(getFaseAtual());
-	}
 }
 
 function avancarFase() {

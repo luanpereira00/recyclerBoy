@@ -1,5 +1,5 @@
 class Player {
-  constructor(fase) {
+  constructor() {
     this.velocidade = 5;
     this.GRAVIDADE = 0.8;
     this.VELOCIDADE_SALTO = -15;
@@ -9,7 +9,6 @@ class Player {
     
     this.sprite = createSprite();
     this.carregarAnimacoes();
-    this.nascer(fase);
   }
   
   nascer(fase) {
