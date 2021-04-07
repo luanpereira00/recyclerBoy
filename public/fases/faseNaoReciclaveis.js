@@ -32,19 +32,19 @@ class FaseNaoReciclaveis extends Fase {
   inicializarInimigos() {
     this.inimigos = [];
     
-    this.inimigos.push(new Inimigo(1044,505,'verde',false,300,2));
+    this.inimigos.push(new Inimigo(1044,505,TipoInimigo.VERDE,false,300,2));
     
-    this.inimigos.push(new Inimigo(1995,375,'azul',false,150,2));
-    this.inimigos.push(new Inimigo(2190,502,'olhudo',true,150,2));
-    this.inimigos.push(new Inimigo(2415,255,'verde',false,100,2));
-    this.inimigos.push(new Inimigo(2787,350,'voador_verde',false,300,3));
+    this.inimigos.push(new Inimigo(1995,375,TipoInimigo.AZUL,false,150,2));
+    this.inimigos.push(new Inimigo(2190,502,TipoInimigo.OLHUDO,true,150,2));
+    this.inimigos.push(new Inimigo(2415,255,TipoInimigo.VERDE,false,100,2));
+    this.inimigos.push(new Inimigo(2787,350,TipoInimigo.VOADOR_VERDE,false,300,3));
     
-    this.inimigos.push(new Inimigo(3200,90,'voador_vermelho',false,500,4));
+    this.inimigos.push(new Inimigo(3200,90,TipoInimigo.VOADOR_VERMELHO,false,500,4));
     
-    this.inimigos.push(new Inimigo(4125,503,'verde',false,180,2));
-    this.inimigos.push(new Inimigo(4125,502,'olhudo',true,180,2));
+    this.inimigos.push(new Inimigo(4125,503,TipoInimigo.VERDE,false,180,2));
+    this.inimigos.push(new Inimigo(4125,502,TipoInimigo.OLHUDO,true,180,2));
     
-    this.inimigos.push(new Inimigo(4740,505,'azul',true,180,2));
+    this.inimigos.push(new Inimigo(4740,505,TipoInimigo.AZUL,true,180,2));
   }
   
   inicializarColetaveis() {

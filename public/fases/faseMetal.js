@@ -72,14 +72,14 @@ class FaseMetal extends Fase {
   inicializarInimigos() {
     this.inimigos = [];
     
-    this.inimigos.push(new Inimigo(650,425,'verde',false,170,2));
-    this.inimigos.push(new Inimigo(1370,505,'olhudo',false,100,2));
-    this.inimigos.push(new Inimigo(1770,315,'azul',false,80,2));
+    this.inimigos.push(new Inimigo(650,425,TipoInimigo.VERDE,false,170,2));
+    this.inimigos.push(new Inimigo(1370,505,TipoInimigo.OLHUDO,false,100,2));
+    this.inimigos.push(new Inimigo(1770,315,TipoInimigo.AZUL,false,80,2));
     
-    this.inimigos.push(new Inimigo(2473,40,'voador_vermelho',false,1000,3));
-    this.inimigos.push(new Inimigo(2510,130,'azul',true,230,2));
+    this.inimigos.push(new Inimigo(2473,40,TipoInimigo.VOADOR_VERMELHO,false,1000,3));
+    this.inimigos.push(new Inimigo(2510,130,TipoInimigo.AZUL,true,230,2));
     
-    this.inimigos.push(new Inimigo(3706,510,'olhudo',true,230,3));
+    this.inimigos.push(new Inimigo(3706,510,TipoInimigo.OLHUDO,true,230,3));
   }
   
   inicializarColetaveis() {

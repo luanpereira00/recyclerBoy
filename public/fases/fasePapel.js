@@ -44,7 +44,7 @@ class FasePapel extends Fase {
   inicializarInimigos() {
     this.inimigos = [];
     
-    this.inimigos.push(new Inimigo(505,460,'olhudo',false,136,1));
+    this.inimigos.push(new Inimigo(505,460,TipoInimigo.OLHUDO,false,136,1));
   }
 	  
   inicializarColetaveis() {
