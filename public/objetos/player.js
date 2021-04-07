@@ -13,7 +13,6 @@ class Player {
   
   nascer(fase) {
 	  this.fase = fase;
-	  this.pulando = false;
 	  this.vivo = true;
 	  this.sprite.position.x = fase.getPosicaoInicialJogador().x
 	  this.sprite.position.y = fase.posicaoInicialJogador.y;
@@ -28,21 +27,21 @@ class Player {
     
     if(this.vivo) {
       if (keyIsDown(RIGHT_ARROW)) {
-        if(!this.pulando) {
+        if(this.noSolo()) {
           this.sprite.changeAnimation('andar');
         }
         this.sprite.mirrorX(1);
         this.sprite.velocity.x = this.velocidade;
 
       } else if (keyIsDown(LEFT_ARROW)) {
-          if(!this.pulando) { 
+          if(this.noSolo()) { 
               this.sprite.changeAnimation('andar');
           }
           this.sprite.mirrorX(-1);
           this.sprite.velocity.x = -this.velocidade;
 
       }else {
-        if(!this.pulando) {
+        if(this.noSolo()) {
           this.sprite.changeAnimation('normal');
         }
       }
@@ -71,7 +70,6 @@ class Player {
     if(this.vivo && this.noSolo()) {
       this.sprite.velocity.y = this.VELOCIDADE_SALTO;
       this.sprite.changeAnimation('pulando');
-      this.pulando = true;
     }
   }
   
@@ -97,14 +95,12 @@ class Player {
 	  return this.atingiuObjetivo;
   }
   
-  tratamentoColisao(player, obstaculo) {    
-    if((floor(player.position.y) + this.sprite.height/2 == obstaculo.position.y - obstaculo.height/2) ) {
-      this.sprite.velocity.y = 0;
-      this.pulando = false;
-    }
-    if((floor(player.position.y) - this.sprite.height/2 == obstaculo.position.y + obstaculo.height/2)) {
-      this.sprite.velocity.y = 0;
-    }
+  tratamentoColisao(player, obstaculo) {
+	  let colisaoDireita = player.position.x + this.sprite.width/2 == obstaculo.position.x - obstaculo.width/2;
+	  let colisaoEsquerda = player.position.x - this.sprite.width/2 == obstaculo.position.x + obstaculo.width/2;
+	  if(!colisaoDireita && !colisaoEsquerda) {
+		  this.sprite.velocity.y = 0;  
+	  }
   }
   
   tratamentoColeta(player, coletavel) {
