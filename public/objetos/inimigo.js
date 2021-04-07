@@ -3,7 +3,7 @@ class Inimigo {
     this.sprite = createSprite();
     this.sprite.position.x = x
     this.sprite.position.y = y;
-    this.sprite.addAnimation('normal', inimigoAnimation[img]());
+    this.sprite.addAnimation('normal', inimigoAnimation[img].clone());
     this.direita = direita;
     this.tamanhoMovimento = tamanhoMovimento;
     this.velocidade = velocidade;
@@ -35,49 +35,56 @@ class Inimigo {
   }
 }
 
-let inimigoAnimation = {
-  azul : function() {
-    return loadAnimation (
+let azul, olhudo, verde, voador_verde, voador_vermelho;
+let inimigoAnimation;
+
+function inicializarInimigoAnimationArray() {
+	inimigoAnimation = {
+		azul : azul,
+		olhudo : olhudo,
+		verde : verde,
+		voador_verde : voador_verde,
+		voador_vermelho : voador_vermelho
+	};
+}
+
+function inicializarInimigoAnimations() {
+	azul = loadAnimation (
       'assets/sprites/inimigo/azul/frame-1.png',
       'assets/sprites/inimigo/azul/frame-2.png'
-	  );
-  },
-  olhudo : function() {
-    return loadAnimation (
+	 );
+
+	olhudo = loadAnimation (
       'assets/sprites/inimigo/olhudo/1.png',
       'assets/sprites/inimigo/olhudo/2.png',
       'assets/sprites/inimigo/olhudo/3.png',
       'assets/sprites/inimigo/olhudo/4.png',
       'assets/sprites/inimigo/olhudo/5.png',
       'assets/sprites/inimigo/olhudo/6.png'
-	  );
-  },
-  verde : function() {
-    let inimigoAnimation = loadAnimation (
-      'assets/sprites/inimigo/verde/frame-1.png',
-      'assets/sprites/inimigo/verde/frame-2.png',
-      'assets/sprites/inimigo/verde/frame-3.png',
-      'assets/sprites/inimigo/verde/frame-4.png',
-      'assets/sprites/inimigo/verde/frame-5.png',
-      'assets/sprites/inimigo/verde/frame-6.png'
-	  );
-    inimigoAnimation.frameDelay = 6;
-    return inimigoAnimation;
-  },
-  voador_verde : function() {
-    let inimigoAnimation = loadAnimation (
+	);
+
+	verde = loadAnimation (
+	  'assets/sprites/inimigo/verde/frame-1.png',
+	  'assets/sprites/inimigo/verde/frame-2.png',
+	  'assets/sprites/inimigo/verde/frame-3.png',
+	  'assets/sprites/inimigo/verde/frame-4.png',
+	  'assets/sprites/inimigo/verde/frame-5.png',
+	  'assets/sprites/inimigo/verde/frame-6.png'
+	);
+	verde.frameDelay = 6;
+		    
+	voador_verde = loadAnimation (
       'assets/sprites/inimigo/voador_verde/frame-1.png',
       'assets/sprites/inimigo/voador_verde/frame-2.png',
       'assets/sprites/inimigo/voador_verde/frame-3.png',
       'assets/sprites/inimigo/voador_verde/frame-4.png'
-	  );
-    inimigoAnimation.frameDelay = 6;
-    return inimigoAnimation;
-  },
-  voador_vermelho : function() {
-    return loadAnimation (
+	);
+	voador_verde.frameDelay = 6;
+
+	voador_vermelho = loadAnimation (
       'assets/sprites/inimigo/voador_vermelho/frame-1.png',
       'assets/sprites/inimigo/voador_vermelho/frame-2.png'
-	  );
-  },
+	);
+	
+	inicializarInimigoAnimationArray();
 }

@@ -23,6 +23,8 @@ function preload() {
 	fases.push(new FaseNaoReciclaveis());
 	fases.push(new FaseMetal());
 	fases.push(new TelaFinal());
+	
+	inicializarInimigoAnimations();
 }
 
 function setup() {	
