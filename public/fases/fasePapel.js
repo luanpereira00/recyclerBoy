@@ -4,13 +4,16 @@ class FasePapel extends Fase {
     
     this.estados.push(estadoFase.ANDAMENTO);
     this.estados.push(estadoFase.FINALIZADA);
-  }
-  
-  inicializarObjetos() {
-	this.background = loadImage('assets/fases/f_papel.png');
+    
+    this.background = loadImage('assets/fases/f_papel.png');
 	this.posicaoInicialJogador.x = 100;
 	this.posicaoInicialJogador.y = 200;
-    
+	
+	this.papelImage = loadImage('assets/sprites/coletavel/papel/papel.png');
+	this.objetivoImage = loadImage('assets/sprites/objetivo/papel.png')
+  }
+  
+  inicializarObjetos() {    
     this.inicializarObstaculos();
     this.inicializarColetaveis();
     this.inicializarInimigos();
@@ -47,20 +50,16 @@ class FasePapel extends Fase {
   inicializarColetaveis() {
     this.coletaveis = [];
     
-    let papel = loadImage('assets/sprites/coletavel/papel/papel.png');
+    this.coletaveis.push(new Coletavel(470,478,this.papelImage));
+    this.coletaveis.push(new Coletavel(555,359,this.papelImage));
+    this.coletaveis.push(new Coletavel(760,530,this.papelImage));
+    this.coletaveis.push(new Coletavel(186,120,this.papelImage));
     
-    this.coletaveis.push(new Coletavel(470,478,papel));
-    this.coletaveis.push(new Coletavel(555,359,papel));
-    this.coletaveis.push(new Coletavel(760,530,papel));
-    this.coletaveis.push(new Coletavel(186,120,papel));
-    
-    this.coletaveis.push(new Coletavel(35,120,papel));
-    
-    
+    this.coletaveis.push(new Coletavel(35,120,this.papelImage));
   }
   
   inicializarObjetivo() {
-	  this.objetivo = new Objetivo(843,70,loadImage('assets/sprites/objetivo/papel.png'));
+	  this.objetivo = new Objetivo(843,70,this.objetivoImage);
   }
 }
  

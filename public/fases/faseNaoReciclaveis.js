@@ -4,13 +4,25 @@ class FaseNaoReciclaveis extends Fase {
     
     this.estados.push(estadoFase.ANDAMENTO);
     this.estados.push(estadoFase.FINALIZADA);
+    
+    this.background = loadImage('assets/fases/f1_bg.jpg');
+	this.posicaoInicialJogador.x = 100;
+	this.posicaoInicialJogador.y = 100;
+	
+	this.caixa_pizzaImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/caixa_pizza.png');
+    this.cupom_fiscalImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/cupom_fiscal.png');
+    
+    this.espelhoImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/espelho.png');
+    this.fita_crepeImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/fita_crepe.png');
+    this.papel_higienicoImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/papel_higienico.png');
+    
+    this.esponjaImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/esponja.png');
+    this.papel_carbonoImage = loadImage('assets/sprites/coletavel/nao_reciclaveis/papel_carbono_2.png');
+    
+    this.objetivoImage = loadImage('assets/sprites/objetivo/nao_reciclaveis.png');
   }
   
-  inicializarObjetos() {
-	this.background = loadImage('assets/fases/f1_bg.jpg');
-	this.posicaoInicialJogador.x = 100;
-    this.posicaoInicialJogador.y = 100;
-    
+  inicializarObjetos() {    
     this.inicializarObstaculos();
     this.inicializarColetaveis();
     this.inicializarInimigos();
@@ -38,25 +50,15 @@ class FaseNaoReciclaveis extends Fase {
   inicializarColetaveis() {
     this.coletaveis = [];
     
-    let caixa_pizza = loadImage('assets/sprites/coletavel/nao_reciclaveis/caixa_pizza.png');
-    let cupom_fiscal = loadImage('assets/sprites/coletavel/nao_reciclaveis/cupom_fiscal.png');
+    this.coletaveis.push(new Coletavel(680,385,this.caixa_pizzaImage));
+    this.coletaveis.push(new Coletavel(1100,520,this.cupom_fiscalImage));
     
-    let espelho = loadImage('assets/sprites/coletavel/nao_reciclaveis/espelho.png');
-    let fita_crepe = loadImage('assets/sprites/coletavel/nao_reciclaveis/fita_crepe.png');
-    let papel_higienico = loadImage('assets/sprites/coletavel/nao_reciclaveis/papel_higienico.png');
+    this.coletaveis.push(new Coletavel(2100,367,this.espelhoImage));
+    this.coletaveis.push(new Coletavel(2370,508,this.fita_crepeImage));
+    this.coletaveis.push(new Coletavel(2520,257,this.papel_higienicoImage));
     
-    let esponja = loadImage('assets/sprites/coletavel/nao_reciclaveis/esponja.png');
-    let papel_carbono = loadImage('assets/sprites/coletavel/nao_reciclaveis/papel_carbono_2.png');
-    
-    this.coletaveis.push(new Coletavel(680,385,caixa_pizza));
-    this.coletaveis.push(new Coletavel(1100,520,cupom_fiscal));
-    
-    this.coletaveis.push(new Coletavel(2100,367,espelho));
-    this.coletaveis.push(new Coletavel(2370,508,fita_crepe));
-    this.coletaveis.push(new Coletavel(2520,257,papel_higienico));
-    
-    this.coletaveis.push(new Coletavel(4047,515,esponja));
-    this.coletaveis.push(new Coletavel(4203,515,papel_carbono));    
+    this.coletaveis.push(new Coletavel(4047,515,this.esponjaImage));
+    this.coletaveis.push(new Coletavel(4203,515,this.papel_carbonoImage));    
   }
   
   inicializarObstaculos() {
@@ -85,7 +87,7 @@ class FaseNaoReciclaveis extends Fase {
   }
   
   inicializarObjetivo() {
-	  this.objetivo = new Objetivo(4942,471,loadImage('assets/sprites/objetivo/nao_reciclaveis.png'));
+	  this.objetivo = new Objetivo(4942,471,this.objetivoImage);
   }
 }
  

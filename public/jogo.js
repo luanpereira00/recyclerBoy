@@ -13,22 +13,21 @@ let trilhaSonora;
 
 function preload() {
 	trilhaSonora = loadSound('assets/sounds/trilha.wav');
-}
-
-function setup() {
+	
+	vidaRuimImg = loadImage('assets/tela/vidaRuim.png');
+	vidaMediaImg = loadImage('assets/tela/vidaMedia.png');
+	vidaBoaImg = loadImage('assets/tela/vidaBoa.png');
+	
 	fases.push(new TelaInicial());
 	fases.push(new FasePapel());
 	fases.push(new FaseNaoReciclaveis());
 	fases.push(new FaseMetal());
 	fases.push(new TelaFinal());
-	
+}
+
+function setup() {	
 	iniciarFase();
-	
-  createCanvas(1000, 657);
-  
-  vidaRuimImg = loadImage('assets/tela/vidaRuim.png');
-  vidaMediaImg = loadImage('assets/tela/vidaMedia.png');
-  vidaBoaImg = loadImage('assets/tela/vidaBoa.png');
+	createCanvas(1000, 657);
 }
 
 function keyPressed() {

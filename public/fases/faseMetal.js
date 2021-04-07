@@ -4,13 +4,21 @@ class FaseMetal extends Fase {
     
     this.estados.push(estadoFase.ANDAMENTO);
     this.estados.push(estadoFase.FINALIZADA);
+    
+    this.background = loadImage('assets/fases/fmetal_bg.jpg');
+	this.posicaoInicialJogador.x = 100;
+	this.posicaoInicialJogador.y = 200;
+	
+	this.lata_laranjaImage = loadImage('assets/sprites/coletavel/metal/lata_laranja.png');
+    this.lata01Image = loadImage('assets/sprites/coletavel/metal/lata01.png');
+    this.lata_vermelhaImage = loadImage('assets/sprites/coletavel/metal/lata_vermelha.png');
+    this.lata02Image = loadImage('assets/sprites/coletavel/metal/lata02.png');
+    this.lata_verdeImage = loadImage('assets/sprites/coletavel/metal/lata_verde.png');
+    
+    this.objetivoImage = loadImage('assets/sprites/objetivo/metal.png');
   }
   
-  inicializarObjetos() {
-	this.background = loadImage('assets/fases/fmetal_bg.jpg');
-	this.posicaoInicialJogador.x = 100;
-    this.posicaoInicialJogador.y = 200;
-    
+  inicializarObjetos() {    
     this.inicializarObstaculos();
     this.inicializarColetaveis();
     this.inicializarInimigos();
@@ -77,22 +85,15 @@ class FaseMetal extends Fase {
   inicializarColetaveis() {
     this.coletaveis = [];
     
-    let lata_laranja = loadImage('assets/sprites/coletavel/metal/lata_laranja.png');
-    let lata01 = loadImage('assets/sprites/coletavel/metal/lata01.png');
-    let lata_vermelha = loadImage('assets/sprites/coletavel/metal/lata_vermelha.png');
-    let lata02 = loadImage('assets/sprites/coletavel/metal/lata02.png');
-    let lata_verde = loadImage('assets/sprites/coletavel/metal/lata_verde.png');
-    
-    this.coletaveis.push(new Coletavel(30,75,lata_laranja));
-    this.coletaveis.push(new Coletavel(2012,520,lata01));
-    this.coletaveis.push(new Coletavel(2420,521,lata_vermelha));
-    this.coletaveis.push(new Coletavel(2545,143,lata_verde));
-    this.coletaveis.push(new Coletavel(2830,375,lata02));
-    
+    this.coletaveis.push(new Coletavel(30,75,this.lata_laranjaImage));
+    this.coletaveis.push(new Coletavel(2012,520,this.lata01Image));
+    this.coletaveis.push(new Coletavel(2420,521,this.lata_vermelhaImage));
+    this.coletaveis.push(new Coletavel(2545,143,this.lata_verdeImage));
+    this.coletaveis.push(new Coletavel(2830,375,this.lata02Image));
   }
   
   inicializarObjetivo() {
-	  this.objetivo = new Objetivo(3960,470,loadImage('assets/sprites/objetivo/metal.png'));
+	  this.objetivo = new Objetivo(3960,470,this.objetivoImage);
   }
 }
  

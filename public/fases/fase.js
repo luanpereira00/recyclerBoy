@@ -1,10 +1,10 @@
 class Fase {
   constructor() {
 	  this.estados = [];
+	  this.posicaoInicialJogador = {};
   }
   
   iniciar() {
-	this.posicaoInicialJogador = {};
 	this.spritesObstaculos = new Group();
 	this.spritesColetaveis = new Group();
 	this.spritesInimigos = new Group();
