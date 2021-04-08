@@ -96,10 +96,11 @@ class Player {
   }
   
   tratamentoColisao(player, obstaculo) {
+	  let colisaoCima = player.position.y - this.sprite.height/2 == obstaculo.position.y + obstaculo.height/2;
 	  let colisaoDireita = player.position.x + this.sprite.width/2 == obstaculo.position.x - obstaculo.width/2;
 	  let colisaoEsquerda = player.position.x - this.sprite.width/2 == obstaculo.position.x + obstaculo.width/2;
-	  if(!colisaoDireita && !colisaoEsquerda) {
-		  this.sprite.velocity.y = 0;  
+	  if(!colisaoDireita && !colisaoEsquerda && !(colisaoCima && this.sprite.velocity.y > 0)) {
+		  this.sprite.velocity.y = 0;
 	  }
   }
   
