@@ -31,6 +31,10 @@ function setup() {
 	iniciarFase();
 	createCanvas(1000, 657);
 	player = new Player();
+	
+	if(getFaseAtual().emAndamento()) {
+		player.nascer(getFaseAtual());
+	}
 }
 
 function keyPressed() {
