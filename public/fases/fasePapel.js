@@ -67,7 +67,7 @@ class FasePapel extends Fase {
   }
   
   inicializarObjetivo() {
-	  this.objetivo = new Objetivo(843,70,this.objetivoImage);
+	  this.objetivo = new Objetivo(838,70,this.objetivoImage);
   }
 }
  
