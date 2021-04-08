@@ -6,7 +6,7 @@ class FaseMetal extends Fase {
     this.estados.push(estadoFase.FINALIZADA);
     
     this.background = loadImage('assets/fases/fmetal_bg.jpg');
-	this.posicaoInicialJogador.x = 100;
+	this.posicaoInicialJogador.x = 20;
 	this.posicaoInicialJogador.y = 200;
 	
 	this.lata_laranjaImage = loadImage('assets/sprites/coletavel/metal/lata_laranja.png');
