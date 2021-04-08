@@ -76,10 +76,18 @@ class FaseMetal extends Fase {
     this.inimigos.push(new Inimigo(1370,505,TipoInimigo.OLHUDO,false,100,2));
     this.inimigos.push(new Inimigo(1770,315,TipoInimigo.AZUL,false,80,2));
     
+    this.inimigos.push(new Inimigo(2200,512,TipoInimigo.VERDE,true,180,3));
+    this.inimigos.push(new Inimigo(2240,512,TipoInimigo.OLHUDO,false,230,4));
+    
     this.inimigos.push(new Inimigo(2473,40,TipoInimigo.VOADOR_VERMELHO,false,1000,3));
     this.inimigos.push(new Inimigo(2510,130,TipoInimigo.AZUL,true,230,2));
     
+    this.inimigos.push(new Inimigo(3000,300,TipoInimigo.VOADOR_VERDE,false,300,5));
+    
     this.inimigos.push(new Inimigo(3706,510,TipoInimigo.OLHUDO,true,230,3));
+    this.inimigos.push(new Inimigo(3706,510,TipoInimigo.VERDE,false,230,3));
+    //Quando for implementado um nível de dificuldade
+    //this.inimigos.push(new Inimigo(3800,510,TipoInimigo.AZUL,false,150,3));
   }
   
   inicializarColetaveis() {
@@ -87,6 +95,7 @@ class FaseMetal extends Fase {
     
     this.coletaveis.push(new Coletavel(30,75,this.lata_laranjaImage));
     this.coletaveis.push(new Coletavel(2012,520,this.lata01Image));
+    this.coletaveis.push(new Coletavel(2240,521,this.lata_laranjaImage));
     this.coletaveis.push(new Coletavel(2420,521,this.lata_vermelhaImage));
     this.coletaveis.push(new Coletavel(2545,143,this.lata_verdeImage));
     this.coletaveis.push(new Coletavel(2830,375,this.lata02Image));
