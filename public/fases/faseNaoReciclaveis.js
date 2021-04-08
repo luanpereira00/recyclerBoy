@@ -77,7 +77,7 @@ class FaseNaoReciclaveis extends Fase {
     
     this.obstaculos.push(new Obstaculo(2399,404,745,260));
     
-    this.obstaculos.push(new Obstaculo(3410,532,1585,131));
+    this.obstaculos.push(new Obstaculo(3410,537,1585,131));
     
     this.obstaculos.push(new Obstaculo(2962,254,121,13));
     this.obstaculos.push(new Obstaculo(3157,137,180,13));
