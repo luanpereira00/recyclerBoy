@@ -8,6 +8,7 @@ let temporizadorIniciado = false;
 let tempoEspera = 0;
 
 let fases = [];
+let faseAtual;
 
 let trilhaSonora;
 
@@ -18,11 +19,13 @@ function preload() {
 	vidaMediaImg = loadImage('assets/tela/vidaMedia.png');
 	vidaBoaImg = loadImage('assets/tela/vidaBoa.png');
 	
-	fases.push(new TelaInicial());
-	fases.push(new FasePapel());
-	fases.push(new FaseNaoReciclaveis());
-	fases.push(new FaseMetal());
-	fases.push(new TelaFinal());
+	this.faseAtual=new TelaInicial();
+
+	//fases.push(new TelaInicial());
+	//fases.push(new FasePapel());
+	//fases.push(new FaseNaoReciclaveis());
+	//fases.push(new FaseMetal());
+	//fases.push(new TelaFinal());
 	
 	inicializarInimigoAnimations();
 }
@@ -88,7 +91,7 @@ function draw() {
 }
 
 function getFaseAtual() {
-	return fases[0];
+	return this.faseAtual;
 }
 
 function iniciarFase() {
@@ -109,7 +112,9 @@ function avancarFase() {
 function iniciarNovaFase() {
 	camera.position.x = 500;
 	getFaseAtual().destruir();
-	fases.shift();
+	getFaseAtual().definirProximaFase();
+	this.faseAtual=getFaseAtual().getProximaFase();
+	//fases.shift();
 	iniciarFase();
 }
 

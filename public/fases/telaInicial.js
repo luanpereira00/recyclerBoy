@@ -13,4 +13,8 @@ class TelaInicial extends Fase {
   inicializarObjetos() {
 	this.background = loadImage('assets/fases/tela_inicial.jpg');
   }
+
+  definirProximaFase(){
+    this.proximaFase=new FasePapel();
+  }
 }

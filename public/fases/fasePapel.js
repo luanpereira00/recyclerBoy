@@ -12,6 +12,10 @@ class FasePapel extends Fase {
 	this.papelImage = loadImage('assets/sprites/coletavel/papel/papel.png');
 	this.objetivoImage = loadImage('assets/sprites/objetivo/papel.png')
   }
+
+  definirProximaFase(){
+    this.proximaFase=new FaseNaoReciclaveis();
+  }
   
   inicializarObjetos() {    
     this.inicializarObstaculos();

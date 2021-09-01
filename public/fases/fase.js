@@ -8,6 +8,7 @@ class Fase {
 	this.spritesObstaculos = new Group();
 	this.spritesColetaveis = new Group();
 	this.spritesInimigos = new Group();
+  this.proximaFase = null;
 		   
 	this.inicializarObjetos();
 		    
@@ -55,6 +56,10 @@ class Fase {
       this.spritesInimigos.add(this.inimigos[i].getSprite());
     }
   }
+
+  definirProximaFase(){
+    return;
+  }
   
   emApresentacao() {
 	  return this.getEstado() == estadoFase.APRESENTACAO;
@@ -99,5 +104,9 @@ class Fase {
   
   getObjetivo() {
 	  return this.objetivo.getSprite();
+  }
+
+  getProximaFase(){
+    return this.proximaFase;
   }
 }

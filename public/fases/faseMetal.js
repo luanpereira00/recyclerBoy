@@ -17,6 +17,10 @@ class FaseMetal extends Fase {
     
     this.objetivoImage = loadImage('assets/sprites/objetivo/metal.png');
   }
+
+  definirProximaFase(){
+    this.proximaFase=new TelaFinal();
+  }
   
   inicializarObjetos() {    
     this.inicializarObstaculos();

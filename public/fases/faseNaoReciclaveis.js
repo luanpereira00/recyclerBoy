@@ -21,6 +21,10 @@ class FaseNaoReciclaveis extends Fase {
     
     this.objetivoImage = loadImage('assets/sprites/objetivo/nao_reciclaveis.png');
   }
+
+  definirProximaFase(){
+    this.proximaFase=new FaseMetal();
+  }
   
   inicializarObjetos() {    
     this.inicializarObstaculos();
